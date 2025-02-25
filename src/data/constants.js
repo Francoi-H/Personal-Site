@@ -1,7 +1,7 @@
 export const Bio = {
     name: "Herby Francois",
     roles: [
-      "Aspiring Software Engineer",
+      "Software Engineer",
       "Kean University Student",
       
     ],
@@ -90,14 +90,27 @@ export const Bio = {
   ];
   
   export const experiences = [
-    
+    {
+      id: 0,
+      img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/neurobit.jpeg?alt=media&token=1cacbb7b-e5ea-4efb-9b3d-f5a31b9564ad",
+      role: "Frontend Engineer Intern",
+      company: "Neurobit",
+      date: "June 2023 - September 2023",
+      desc: "Working on the frontend of the web application using ReactJS.",
+      skills: [
+        "ReactJS",
+        "HTML",
+        "CSS",
+        "JavaScript",
+    ],
+  },
   ];
   
   export const education = [
     {
       id: 0,
       img: "https://th.bing.com/th/id/OIP.c3RTeEnL5arXee57FUTlpwHaHw?rs=1&pid=ImgDetMain",
-      school: "Kalinga Institute of Industrial Technology, Bhubaneswar",
+      school: "Kean University, Elizabeth",
       date: "Sep 2022 - Sep 2025",
       grade: "3.5 CGPA",
       desc: "I am currently pursuing a Bachelor's degree in Computer Science and Engineering at Kean University, Elizabeth. I have completed 2 semesters and have a CGPA of 3.5. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others.",
