@@ -2,13 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from '../../data/constants';
 import Typewriter from 'typewriter-effect';
-import HeroImg from '../../images/OIP.jpg'
-import HeroBgAnimation from '../HeroBgAnimation'
-
-
-
-
-
+import HeroImg from '../../images/OIP.jpg';
+import HeroBgAnimation from '../HeroBgAnimation';
 
 const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
@@ -63,6 +58,7 @@ const HeroInnerContainer = styled.div`
     flex-direction: column;
   }
 `;
+
 const HeroLeftContainer = styled.div`
   width: 100%;
   order: 1;
@@ -141,15 +137,16 @@ const TextLoop = styled.div`
   font-weight: 600;
   font-size: 32px;
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 4px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 48px;
   @media (max-width: 960px) {
     text-align: center;
   }
   @media (max-width: 640px) {
     font-size: 22px;
-    line-height: 48px;
+    line-height: 32px;
     margin-bottom: 16px;
   }
 `;
@@ -208,22 +205,49 @@ const ResumeButton = styled.a`
         padding: 12px 0;
         font-size: 18px;
     } 
-
 `;
 
+// A button that links to the user's GitHub profile.  This variant is positioned
+// in the top‑right corner of the hero section rather than inside the content.
+const GithubTopButton = styled.a`
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    z-index: 2;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.white};
+    background: hsla(210, 10%, 20%, 1);
+    background: linear-gradient(225deg, hsla(210, 10%, 20%, 1) 0%, hsla(210, 10%, 30%, 1) 100%);
+    box-shadow:  8px 8px 24px #1F2634,
+    -8px -8px 24px #1F2634;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+`;
 
 const HeroSection = () => {
     return (
         <div id="about">
             <HeroContainer>
+                {/* Top‑right GitHub button positioned absolutely within the hero container */}
+                <GithubTopButton href={Bio.github} target="_blank" rel="noopener noreferrer">
+                    GitHub Profile
+                </GithubTopButton>
                 <HeroBg>
                     <HeroBgAnimation />
                 </HeroBg>
                 <HeroInnerContainer >
                     <HeroLeftContainer id="Left">
                         <Title>Hi, I am <br /> {Bio.name}</Title>
+                        {/* Place the descriptor on its own line to prevent long roles from breaking the layout. */}
                         <TextLoop>
-                            I am a
+                            <div>I am a:</div>
                             <Span>
                                 <Typewriter
                                     options={{
@@ -235,7 +259,8 @@ const HeroSection = () => {
                             </Span>
                         </TextLoop>
                         <SubTitle>{Bio.description}</SubTitle>
-                        <ResumeButton href={Bio.resume} target='display'>Check Resume</ResumeButton>
+                        {/* Link the resume button to the resume PDF and open in a new tab */}
+                        <ResumeButton href={Bio.resume} target="_blank" rel="noopener noreferrer">Check Resume</ResumeButton>
                     </HeroLeftContainer>
 
                     <HeroRightContainer id="Right">
